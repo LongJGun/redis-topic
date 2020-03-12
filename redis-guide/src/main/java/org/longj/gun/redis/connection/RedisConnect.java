@@ -15,7 +15,7 @@ public class RedisConnect {
 
     public static Jedis connectRedis() {
         Jedis jedis = new Jedis(host,port);
-//        jedis.auth("123456");
+        jedis.auth("123456");
         if ( "PONG".equalsIgnoreCase(jedis.ping()) ) {
             return jedis;
         } else {

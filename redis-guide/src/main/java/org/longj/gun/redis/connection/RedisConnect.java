@@ -1,6 +1,6 @@
 package org.longj.gun.redis.connection;
 
-import org.junit.Test;
+import org.longj.gun.redis.datatype.string.StringType;
 import redis.clients.jedis.Jedis;
 
 /**
@@ -21,6 +21,16 @@ public class RedisConnect {
         } else {
             throw new RuntimeException("Redis 连接失败");
         }
+    }
+
+    public static void initData(Jedis jedis){
+        // 字符串初始化
+        StringType.setNx(jedis,"name","LongJ");
+        StringType.setNx(jedis,"age","25");
+        StringType.setNx(jedis,"city","Zhangzhou");
+        StringType.setNx(jedis,"work","Aluba");
+        StringType.setNx(jedis,"wx","JJWW");
+
     }
 
 }
